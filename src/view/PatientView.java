@@ -1,7 +1,6 @@
 package view;
 
 import controller.PatientController;
-import controller.IPatientController;
 import model.Patient;
 
 import java.util.InputMismatchException;
@@ -27,11 +26,11 @@ public class PatientView {
             System.out.println("4. Delete Patient");
             System.out.println("0. Exit");
             System.out.print("Escolha uma opção: ");
-            option = captureInteger();
+            option = captureInteger(null);
 
             switch (option) {
                 case 1: 
-                	addPatient();
+                    addPatient();
                     break;
                 case 2:
                     listPatients();
@@ -66,7 +65,7 @@ public class PatientView {
             System.out.println("Nenhum paciente registrado.");
         } else {
             for (Patient patient : patients) {
-                patient.displayMenu();
+                System.out.println(patient);
             }
         }
     }
@@ -105,10 +104,10 @@ public class PatientView {
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
                 valid = false;
-                scanner.nextLine(); // Clear buffer
+                scanner.nextLine();
             }
         } while (!valid);
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
         return value;
     }
 
