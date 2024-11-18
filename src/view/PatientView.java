@@ -66,7 +66,7 @@ public class PatientView {
             System.out.println("Nenhum paciente registrado.");
         } else {
             for (Patient patient : patients) {
-                patient.displayPatient();
+                patient.displayMenu();
             }
         }
     }
